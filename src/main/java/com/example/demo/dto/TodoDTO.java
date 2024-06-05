@@ -16,6 +16,7 @@ public class TodoDTO {
 	private String title;
 	private boolean done;
 	
+	// 엔티티에서 불러오기
 	public TodoDTO(TodoEntity entity) {
 		this.id = entity.getId();
 		this.title = entity.getTitle();
