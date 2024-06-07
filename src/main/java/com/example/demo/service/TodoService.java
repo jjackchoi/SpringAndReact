@@ -28,6 +28,7 @@ public class TodoService {
 		return savedEntity.getTitle();
 	}
 	
+	// todo 생성
 	public List<TodoEntity> create(final TodoEntity entity) {
 		// validations
 		validate(entity);
@@ -37,6 +38,11 @@ public class TodoService {
 		log.info("Entity Id : {} is saved.", entity.getId());
 		
 		return repository.findByUserId(entity.getUserId());
+	}
+	
+	// todo 조회
+	public List<TodoEntity> retrieve(final String userId) {
+		return repository.findByUserId(userId);
 	}
 	
 	// 검증
@@ -51,4 +57,5 @@ public class TodoService {
 			throw new RuntimeException("unknonw user.");
 		}
 	}
+	
 }
